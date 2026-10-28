@@ -1,71 +1,48 @@
 <!doctype html>
-<html>
-
+<html lang="en" data-theme="delivery">
 <head>
-    <title>Ramiz Ali</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://use.fontawesome.com/33930d8d2f.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="styles.css" type="text/css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ramiz Ali</title>
+  <meta name="description" content="Ramiz Ali">
+  <meta name="theme-color" content="#f1e6d6">
+  <meta property="og:title" content="Ramiz Ali">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='52' height='52' rx='16' fill='%23e8573f'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23fff3e2'/%3E%3C/svg%3E">
+  <!-- The import map must come before any module script or modulepreload (Firefox enforces this). -->
+  <script type="importmap">{ "imports": { "three": "./vendor/three.min.js" } }</script>
+  <link rel="modulepreload" href="vendor/three.min.js">
+  <link rel="stylesheet" href="styles.css">
+  <noscript><style>.controls { display: none; }</style></noscript>
 </head>
-    <body ng-app="myPort">
-      <div id="navButtons">
-          <a href="#/"><i class="projectsI fa fa-folder-o"></i></a>
-          <a href="#/contact"><i class="contactI fa fa-envelope-o"></i></a>
-      </div>
-      <div class="bg1">
-        <div class="mainText">
-        <div class="row text-center">
-          <div class="wow slideInDown" data-wow-duration="1s" id="name">
-            Ramiz Ali
-          </div>
-          <div class="wow slideInDown" data-wow-duration="2s" id="userIcon">
-            <br>
-            <a href="#/contact"><i anchor-smooth-scroll="proj" class="fa fa-user-circle icons"></i></a>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="wow slideInDown" data-wow-duration="3s" id="fewd">
-            Front-End Web Developer
-          </div>
-          <div class="wow slideInDown" data-wow-duration="3s" id="gitIcon">
-            <br>
-            <a href="https://github.com/zimarali" target="_blank"><i class="fa fa-github icons"></i></a>
-          </div>
-        </div>
+<body>
+  <main class="stage" id="stage">
+    <h1 class="name">
+      <span class="name__text">Ramiz Ali</span>
+      <span class="name__toy" aria-hidden="true"><span>R</span><span>a</span><span>m</span><span>i</span><span>z</span><span class="gap"> </span><span>A</span><span>l</span><span>i</span></span>
+    </h1>
+    <canvas class="stage__canvas" aria-hidden="true"></canvas>
+  </main>
 
-        <div class="row text-center">
-          <div id="downArrow">
-            <i anchor-smooth-scroll="proj" class="fa fa-chevron-down icons"></i>
-          </div>
-        </div>
-        </div>
-      </div>
+  <div class="controls">
+    <button type="button" class="ctl" id="sound" aria-label="Turn sound on" aria-pressed="false" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M4 9.5h3.2L12 5.5v13l-4.8-4H4z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        <path class="ico-on" d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.6 7.6 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path class="ico-off" d="M16 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button type="button" class="ctl" id="another" aria-label="Show another scene">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="8.6" cy="8.6" r="1.55" fill="currentColor"/>
+        <circle cx="12" cy="12" r="1.55" fill="currentColor"/>
+        <circle cx="15.4" cy="15.4" r="1.55" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
 
-      <div class="container-fluid bg2" id="proj">
+  <p class="sr-only" id="scene-status" aria-live="polite"></p>
 
-        <ng-view></ng-view>
-
-      </div>
-
-      <div class="bg3">
-        <div class="row text-center i2">
-        <a href="#/contact"><i anchor-smooth-scroll="proj" class="fa fa-user-circle icons"></i></a>
-        <i id="upI" anchor-smooth-scroll="proj" class="fa fa-chevron-up icons"></i>
-        <a href="https://github.com/zimarali" target="_blank"><i class="fa fa-github icons"></i></a>
-        </div>
-      </div>
-
-
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-        <script src="scripts/module.js"></script>
-    </body>
+  <script type="module" src="src/main.js"></script>
+</body>
 </html>
